@@ -4,6 +4,12 @@ Este proyecto forma parte de un **trayecto de aprendizaje de React**. Es una pri
 
 La propuesta es aprender con el proyecto abierto: **instalarlo, recorrer sus archivos, comparar el código con la página y hacer cambios propios**. No hace falta comprender todo de una vez. Elegí una pieza, investigá cómo funciona y observá qué ocurre cuando la transformás.
 
+## Ver la demo
+
+**[Abrir el proyecto publicado en Vercel](https://react-inicial-landy.vercel.app)**
+
+Recorrelo primero en el navegador. Después descargalo y compará lo que ves con sus componentes y su contenido en JSON.
+
 ## Qué vas a encontrar
 
 Una página en español, adaptada a partir de Landy, con seis secciones que reutilizan el mismo componente. El recorrido presenta:
