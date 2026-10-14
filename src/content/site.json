@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "language": "es",
+    "icon": "/favicon.ico",
+    "title": "React, pieza por pieza · Landy para aprender",
+    "description": "Explorá React con un proyecto que podés leer y modificar: componentes, props, contenido en JSON y un primer ejemplo con useState.",
+    "noscript": "Activá JavaScript para explorar este proyecto de React."
+  },
+  "mainId": "contenido",
+  "skipLink": "Saltar al contenido",
+  "header": {
+    "brand": { "label": "Landy / React", "href": "#inicio" },
+    "navigationLabel": "Secciones del proyecto",
+    "links": [
+      { "label": "Estructura", "href": "#estructura" },
+      { "label": "Componentes", "href": "#componentes" },
+      { "label": "useState", "href": "#estado" },
+      { "label": "Tu turno", "href": "#practica" }
+    ]
+  },
+  "intro": {
+    "id": "inicio",
+    "eyebrow": "Un proyecto para abrir, explorar y transformar",
+    "title": "Aprendé React, pieza por pieza.",
+    "paragraphs": [
+      "React es una biblioteca de JavaScript para construir interfaces con componentes: piezas que describen lo que aparece en pantalla y que podemos combinar y reutilizar.",
+      "Esta página también es el ejemplo. Abrí el código, encontrá una sección y cambiá sus datos. Después observá cómo una misma estructura puede contar algo distinto."
+    ],
+    "image": { "src": "/img/svg/developer.svg", "alt": "Ilustración de una persona trabajando en un proyecto web." },
+    "actions": [
+      { "label": "Explorar la estructura", "href": "#estructura" },
+      { "label": "Probar useState", "href": "#estado" }
+    ]
+  },
+  "structure": {
+    "id": "estructura",
+    "eyebrow": "Primero, ubicarse",
+    "title": "Una página. Un recorrido que podés seguir.",
+    "paragraphs": [
+      "El archivo index.html contiene el punto de montaje. Desde src/index.jsx, React muestra App. App reúne el encabezado, Home y el pie; Home organiza las secciones que estás leyendo.",
+      "Abrí src/pages/Home.jsx y comparalo con esta página. Cada ContentBlock es una sección. Su orden en el JSX determina su orden en pantalla. Probá mover uno y contá qué cambió."
+    ],
+    "image": { "src": "/img/svg/graphs.svg", "alt": "Ilustración de bloques conectados para representar la organización del proyecto." },
+    "code": {
+      "caption": "Mapa del proyecto: entrada, composición, contenido y estilos",
+      "lines": [
+        "index.html → src/index.jsx → App.jsx",
+        "                              ├─ Header",
+        "                              ├─ Home",
+        "                              │  └─ Container",
+        "                              │     └─ ContentBlock × 6",
+        "                              │        ├─ ConceptCard (cuando hay tarjetas)",
+        "                              │        └─ StateDemo (en la sección useState)",
+        "                              └─ Footer",
+        "",
+        "src/content/site.json → datos y textos",
+        "src/styles.css        → presentación visual"
+      ]
+    },
+    "note": "Esta organización de carpetas es una elección para aprender; React no exige estos nombres."
+  },
+  "components": {
+    "id": "componentes",
+    "eyebrow": "Las piezas y sus relaciones",
+    "title": "La estructura se reutiliza. Los datos cambian.",
+    "paragraphs": [
+      "ContentBlock define cómo se presenta una sección. Home lo usa seis veces y le pasa distintos datos mediante la prop content. Todos los textos, enlaces, imágenes y ejemplos que ves se editan en src/content/site.json.",
+      "Seguí el viaje de un título: sale del JSON, llega a Home y se entrega a ContentBlock. Después buscá las tarjetas de abajo: ConceptCard es otro componente, anidado dentro de ContentBlock."
+    ],
+    "image": { "src": "/img/svg/product-launch.svg", "alt": "Ilustración de una interfaz construida con distintas piezas." },
+    "cards": [
+      { "id": "jsx", "title": "JSX: describir la interfaz", "text": "Se parece a HTML y permite incluir expresiones de JavaScript entre llaves. En ContentBlock, {content.title} coloca el título recibido dentro de un encabezado." },
+      { "id": "props", "title": "Props: pasar datos", "text": "Son los datos que un componente recibe de quien lo utiliza. Cambiá el título de una sección en el JSON y verificá que el mismo ContentBlock pueda mostrarlo." },
+      { "id": "composition", "title": "Anidar: componer piezas", "text": "Un componente puede mostrar otros en su JSX. Home coloca StateDemo dentro de ContentBlock; ContentBlock lo recibe como children. Sus funciones se definen por separado." }
+    ],
+    "code": {
+      "caption": "Un fragmento real de Home.jsx: datos por props y composición con children",
+      "lines": [
+        "<ContentBlock content={content.state}>",
+        "  <StateDemo content={content.state.demo} />",
+        "</ContentBlock>"
+      ]
+    },
+    "note": "Los datos viven en JSON; el orden de los componentes y su comportamiento viven en JSX; el aspecto visual vive en CSS. No hace falta convertir la estructura de la aplicación en una configuración."
+  },
+  "thinking": {
+    "id": "pensar",
+    "eyebrow": "Una forma de mirar el proyecto",
+    "title": "Pensar en React, con esta página.",
+    "paragraphs": [
+      "La guía oficial Pensar en React propone empezar por las piezas de una interfaz y por los datos que necesitan. Esta es una explicación breve, aplicada a nuestro proyecto; al final tenés el artículo completo en español."
+    ],
+    "cards": [
+      { "id": "identify", "title": "Reconocé las piezas", "text": "Ubicá el encabezado, las secciones y las tarjetas. ¿Qué parte se repite? ¿Qué responsabilidad tiene cada componente? Compará la pantalla con Home.jsx." },
+      { "id": "data", "title": "Construí con datos", "text": "Personalizá una sección cambiando su JSON. Luego reutilizá ContentBlock con otro contenido. Observá qué se mantiene y qué cambia entre ambas instancias." },
+      { "id": "interaction", "title": "Sumá una interacción", "text": "Decidí qué necesita recordar la interfaz. En la demostración siguiente alcanza con saber si una pista está visible. Ese dato será nuestro único estado." }
+    ],
+    "resource": { "label": "Leer Pensar en React en español ↗", "href": "https://es.react.dev/learn/thinking-in-react", "target": "_blank" }
+  },
+  "state": {
+    "id": "estado",
+    "eyebrow": "Un primer hook",
+    "title": "useState: una pequeña memoria.",
+    "paragraphs": [
+      "Un hook es una función de React que permite usar capacidades como el estado dentro de un componente. En este proyecto usamos solamente useState, una vez, en StateDemo.jsx.",
+      "useState(false) entrega dos valores: visible, que empieza en false, y setVisible, la función para actualizarlo. Al pulsar el botón, setVisible(!visible) cambia ese valor. React vuelve a ejecutar el componente y actualiza lo que muestra.",
+      "Probá abrir y cerrar la pista. El botón cambia de texto y el párrafo aparece o se oculta. Los textos llegan por props desde JSON; la decisión de mostrarlos depende del estado. Al recargar la página, la pista vuelve a estar oculta."
+    ],
+    "code": {
+      "caption": "Las dos líneas que gobiernan la interacción en StateDemo.jsx",
+      "lines": [
+        "const [visible, setVisible] = useState(false);",
+        "",
+        "onClick={() => setVisible(!visible)}"
+      ]
+    },
+    "demo": {
+      "title": "Probalo en esta página",
+      "panelId": "pista-react",
+      "showLabel": "Mostrar pista",
+      "hideLabel": "Ocultar pista",
+      "closedStatus": "visible = false · La pista está oculta.",
+      "openStatus": "visible = true · La pista está a la vista.",
+      "hint": "Buscá hidden={!visible} en StateDemo.jsx. Cuando visible vale true, hidden vale false y el párrafo se muestra. Después cambiá esta pista en el JSON: su comportamiento seguirá siendo el mismo."
+    },
+    "note": "Llamá useState al comienzo del componente, fuera de condiciones y bucles. Para cambiar el estado, usá su función de actualización; no reasignes visible.",
+    "resource": { "label": "Consultar useState en la documentación oficial ↗", "href": "https://es.react.dev/reference/react/useState" }
+  },
+  "practice": {
+    "id": "practica",
+    "eyebrow": "Ahora te toca explorar",
+    "title": "Hacé que este proyecto sea tuyo.",
+    "paragraphs": [
+      "Elegí un tema: tu perfil, un equipo o una propuesta. Conservá las piezas que te sirven y transformá el contenido. En cada cambio, identificá si trabajaste sobre los datos, la composición, el comportamiento o los estilos."
+    ],
+    "steps": [
+      { "id": "content", "text": "Personalizá títulos, párrafos e imágenes desde site.json. Revisá también los enlaces y los textos alternativos de las imágenes." },
+      { "id": "section", "text": "Agregá datos para una sección y reutilizá ContentBlock en Home.jsx. Elegí un id único; si sumás un enlace al menú, hacelo apuntar a ese id." },
+      { "id": "card", "text": "Sumá una tarjeta al arreglo cards de una sección. Buscá el .map() que la convierte en un ConceptCard y explicá para qué se usa key." },
+      { "id": "styles", "text": "Cambiá un color o un espaciado en styles.css. Después explicá el ejemplo de useState y probá la navegación con teclado y en una pantalla angosta." }
+    ],
+    "note": "El próximo paso será agregar rutas a este mismo proyecto: una portada y otra página, cada una con su URL. Los enlaces actuales con # sólo se desplazan entre secciones; todavía no usamos React Router.",
+    "resource": { "label": "Seguir explorando: tu primer componente ↗", "href": "https://es.react.dev/learn/your-first-component" }
+  },
+  "footer": {
+    "text": "Landy adaptado para aprender React · Componentes, datos y una interacción.",
+    "link": { "label": "Volver al comienzo ↑", "href": "#inicio" }
+  }
+}
